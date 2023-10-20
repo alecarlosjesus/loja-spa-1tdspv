@@ -2,14 +2,22 @@ import Link from "next/link";
 
 export default function Cabecalho() {
   return (
-    <header>
-        <nav>
+    <header className="bg-slate-800 text-white">
+      <h1 className="text-center text-3xl font-extrabold">PRODUTOS</h1>
+      <hr className="bg-red-600 border border-red-700"/> 
+      <nav className="menu">
         <ul>
-          <li><Link href="/produtos/calca">CALÇA</Link></li>
-          <li><Link href="/produtos/camisa">CAMISA</Link></li>
-          <li><Link href="/produtos/tenis">TÊNIS</Link></li>
-      </ul>
-        </nav>
+          <li>
+            <Link href="/produtos/calca">CALÇA</Link>
+          </li>
+          <li>
+            <Link href="/produtos/camisa">CAMISA</Link>
+          </li>
+          <li>
+            <Link href="/produtos/tenis">TÊNIS</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
-  )
+  );
 }
