@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-export default function Calca() {
+export default function Calca({props}) {
+  
   return (
     <div>
         <h1>Calça</h1>
