@@ -29,16 +29,20 @@ const handleLogin = async (email,senha)=>{
                 return userFile;
             }
         }
+        return null;
     }catch(error){
         console.log(error);
  }
 }
 
 export async function POST(request, response){
-    const dadosRequest = await request.json();
-    
-    if(dadosRequest.info == "login"){
-        return  NextResponse.json( await handleLogin(dadosRequest.email,dadosRequest.senha));
+    //Pegando os dados do request com o await e destructuring.
+    const {info,email,senha} = await request.json();
+
+    console.log(info,email,senha);
+
+    if(info == "login"){
+        return  NextResponse.json( await handleLogin(email,senha));
     }
     return NextResponse.json({"status":false});
 }
