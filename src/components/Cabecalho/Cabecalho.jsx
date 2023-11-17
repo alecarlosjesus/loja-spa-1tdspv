@@ -2,7 +2,14 @@
 import Link from "next/link";
 export default function Cabecalho() {
 
-  if (sessionStorage.getItem("token-user")) {
+
+  const logout = () => {
+    sessionStorage.removeItem("token-user");
+    window.location.href = "/login";
+  }
+
+  if(window != undefined && window != null) {
+  if(sessionStorage.getItem("token-user") != null && sessionStorage.getItem("token-user") != undefined) {
     return (
       
       <header className="bg-slate-800 text-white">
@@ -15,7 +22,7 @@ export default function Cabecalho() {
               <Link href="/">HOME</Link>
             </li>
             <li>
-              <Link href="/login">LOGIN</Link>
+              <Link href="/login" onClick={logout}>LOGOUT</Link>
             </li>
             <li>
               <Link href="/produtos/calca">CALÇA</Link>
@@ -53,5 +60,5 @@ export default function Cabecalho() {
         </nav>
       </header>
     );
-  }
+  }}
 }

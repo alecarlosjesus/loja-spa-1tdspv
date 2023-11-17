@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+
 export default function LoginUser() {
 
     //Utilizando o redirecionamento quando estamos no cliente:
@@ -60,10 +61,15 @@ export default function LoginUser() {
                     //Armazenar o token no sessionStorage:
                     sessionStorage.setItem("token-user",token);
 
+                    //Armazenar o token em uma env variável no NEXTJS:
+                   process.env.NEXT_PUBLIC_TOKEN_USER = token;
+
+
                     setMsgStatus("Login realizado com SUCESSO!");
                     
                     setTimeout(()=>{
                         setMsgStatus("");
+                
                         navigate.push("/");
                     },5000);
                 }else{
